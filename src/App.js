@@ -21,6 +21,17 @@ function App() {
   useEffect(() => {
     if (window.location.href.includes("code=")) {
       setAccessToken(window.location.href.split("code=")[1].split("#_=_")[0]);
+      graph.authorize(
+        {
+          client_id: "2326480507388664",
+          redirect_uri: "https://quizzical-carson-5f9a0e.netlify.com/",
+          client_secret: "49d1fd41f5416e447e1dc9678b523e5a",
+          code: window.location.href.split("code=")[1].split("#_=_")[0]
+        },
+        function(err, facebookRes) {
+          console.log(facebookRes, err);
+        }
+      );
     }
   }, []);
   console.log(accessToken);
