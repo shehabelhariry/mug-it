@@ -7,7 +7,7 @@ function App() {
   const getAccesToken = () => {
     var authUrl = graph.getOauthUrl({
       client_id: "2326480507388664",
-      redirect_uri: "http//localhost:3000"
+      redirect_uri: "https://quizzical-carson-5f9a0e.netlify.com/"
     });
 
     window.open(authUrl, "_blank");
