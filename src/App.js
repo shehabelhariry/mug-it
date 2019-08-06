@@ -6,6 +6,7 @@ import graph from "fb-react-sdk";
 function App() {
   const [accessToken, setAccessToken] = useState("");
   const [code, setCode] = useState("");
+  const [posts, setPosts] = useState([]);
   const getAccesToken = () => {
     var authUrl = graph.getOauthUrl({
       client_id: "2326480507388664",
@@ -17,9 +18,12 @@ function App() {
   };
 
   const getFeed = () => {
-    var graphObject = graph.get("/me/feed", function(err, res) {
-      console.log(res);
-    });
+    var graphObject = graph.get(
+      "/me/feed?fields=full_picture,message,created_time,description,height,icon,message_tags",
+      function(err, res) {
+        setPosts(res.data);
+      }
+    );
   };
 
   useEffect(() => {
@@ -54,6 +58,16 @@ function App() {
           <button onClick={getFeed}>get your Feed</button>
         </span>
       ) : null}
+      {posts.length
+        ? posts.map(post => (
+            <div>
+              {post.message}
+              {post.description}
+              {post.icon ? <img src={post.icon} /> : null}
+              {post.full_picture ? <img src={post.full_picture} /> : null}
+            </div>
+          ))
+        : null}
     </div>
   );
 }
