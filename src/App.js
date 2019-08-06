@@ -14,9 +14,12 @@ function App() {
 
     window.open(authUrl, "_blank");
     console.log(authUrl);
+  };
 
-    const accessToken =
-      "AQAHbF9HvemmP5Q2FokGbrlzOIpc-ge1xCWSZ2o7U0TsJRtfBgRX9Vu02jv73XIOE57Cl5ZSozwSkGIx_sTbJ0Mk61RIaTAZ-rufaUfk5mCjke4JIK5Qaf6RlvRHz9tl2b37EaK64ylryGBRRWeSINtSZSfyFnLKp_yIx4gmiCH4jH4XC9SQLEjx0viDd7VJFO07UgPm6oXW31d-2y2ssr7NkWPD_WNgeyWz28dioXq_aD04kSMyxQAriuwbEtOq4gXtqYnneW9CpaL9Uudsug_scpgQMDG-ZdJGpx2tcnMnRjcYaaTVgUKQS6YeoixHn3I";
+  const getFeed = () => {
+    var graphObject = graph.get("zuck", function(err, res) {
+      console.log(res);
+    });
   };
 
   useEffect(() => {
@@ -45,7 +48,11 @@ function App() {
         <button onClick={getAccesToken}>Click to open auth</button>
       ) : null}
       {accessToken !== "" ? (
-        <span> You have access to choose your facebook posts </span>
+        <span>
+          {" "}
+          You have access to choose your facebook posts
+          <button onClick={getFeed}>get your Feed</button>
+        </span>
       ) : null}
     </div>
   );
