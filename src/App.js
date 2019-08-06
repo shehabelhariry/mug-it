@@ -17,7 +17,7 @@ function App() {
   };
 
   const getFeed = () => {
-    var graphObject = graph.get("zuck", function(err, res) {
+    var graphObject = graph.get("/me/feed", function(err, res) {
       console.log(res);
     });
   };
