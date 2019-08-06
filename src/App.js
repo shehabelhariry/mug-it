@@ -5,6 +5,7 @@ import graph from "fb-react-sdk";
 
 function App() {
   const [accessToken, setAccessToken] = useState("");
+  const [code, setCode] = useState("");
   const getAccesToken = () => {
     var authUrl = graph.getOauthUrl({
       client_id: "2326480507388664",
@@ -20,7 +21,7 @@ function App() {
 
   useEffect(() => {
     if (window.location.href.includes("code=")) {
-      setAccessToken(window.location.href.split("code=")[1].split("#_=_")[0]);
+      setCode(window.location.href.split("code=")[1].split("#_=_")[0]);
       graph.authorize(
         {
           client_id: "2326480507388664",
@@ -30,6 +31,9 @@ function App() {
         },
         function(err, facebookRes) {
           console.log(facebookRes, err);
+          if (facebookRes) {
+            setAccessToken(facebookRes.access_token);
+          }
         }
       );
     }
@@ -37,7 +41,12 @@ function App() {
   console.log(accessToken);
   return (
     <div className="App">
-      <button onClick={getAccesToken}>Click to open auth</button>
+      {code == "" ? (
+        <button onClick={getAccesToken}>Click to open auth</button>
+      ) : null}
+      {accessToken !== "" ? (
+        <span> You have access to choose your facebook posts </span>
+      ) : null}
     </div>
   );
 }
