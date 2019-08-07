@@ -1,33 +1,90 @@
-.App {
-  text-align: center;
+.light-grey {
+  color: #616770;
+  font-size: 14px;
+  font-weight: 400;
+}
+.lightest-grey {
+  color: #616770;
+  font-size: 12px;
+  font-weight: 400;
 }
 
-.App-logo {
-  animation: App-logo-spin infinite 20s linear;
-  height: 40vmin;
-  pointer-events: none;
+.blue {
+  color: #385898;
+  font-weight: 600;
+  text-decoration: none;
+  font-size: 14px;
 }
 
-.App-header {
-  background-color: #282c34;
-  min-height: 100vh;
+.black-bold {
+  font-size: 16px;
+  font-weight: 600;
+}
+
+@font-face {
+  font-family: "Helvatica";
+  src: url("./fonts/Helvetica.ttf");
+}
+
+body {
+  font-family: "Helvatica", serif;
+  background-color: #e9ebee;
   display: flex;
-  flex-direction: column;
-  align-items: center;
   justify-content: center;
-  font-size: calc(10px + 2vmin);
-  color: white;
 }
 
-.App-link {
-  color: #61dafb;
+.d-flex {
+  display: flex;
 }
 
-@keyframes App-logo-spin {
-  from {
-    transform: rotate(0deg);
-  }
-  to {
-    transform: rotate(360deg);
-  }
+.align-items-center {
+  align-items: center;
+}
+
+.justify-content-around {
+  justify-content: space-around;
+}
+
+.uppercase {
+  text-transform: uppercase;
+}
+
+.p-2 {
+  padding: 10px;
+}
+
+.pr-1 {
+  padding-right: 5px;
+}
+
+.pr-2 {
+  padding-right: 10px;
+}
+
+.pt-1 {
+  padding-top: 5px;
+}
+
+.pb-1 {
+  padding-bottom: 5px;
+}
+
+.pb-2 {
+  padding-bottom: 10px;
+}
+.pb-3 {
+  padding-bottom: 15px;
+}
+
+.fb-post-container {
+  width: 514px;
+  box-sizing: border-box;
+  background: white;
+  border-radius: 2px;
+  margin: 20px;
+}
+
+.fb-post-desc {
+  background: #f2f3f5;
+  padding: 10px;
 }
