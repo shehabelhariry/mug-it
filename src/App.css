@@ -21,10 +21,10 @@
   font-weight: 600;
 }
 
-/* @font-face {
+@font-face {
   font-family: "Helvatica";
   src: url("./fonts/Helvetica.ttf");
-} */
+}
 
 body {
   font-family: "Helvatica", serif;
