@@ -3,7 +3,7 @@ import logo from "./logo.svg";
 import "./App.css";
 import graph from "fb-react-sdk";
 
-import moment from "moment";
+// import moment from "moment";
 
 function App() {
   const [accessToken, setAccessToken] = useState("");
@@ -77,11 +77,7 @@ function App() {
                       <span className="light-grey">shared a live video.</span>
                     </div>
                     <div className="lightest-grey pt-1">
-                      {post.created_time
-                        ? moment("2019-08-12T07:20:59+0000")
-                            .format("MMMM D at h:mm A")
-                            .replace("amt", "at")
-                        : null}
+                      {post.created_time}
                     </div>
                   </div>
                 </div>
